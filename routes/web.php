@@ -57,7 +57,7 @@ Route::middleware(['auth'])->group(function(){
       Route::get('/staffs/requests', [SessionsController::class, 'requestList'])->name('staffs.requests');
       Route::get('approve/{id}', [SessionsController::class, 'approve'])->name('staffs.approve');
       Route::get('/staffs/approved-requests', [SessionsController::class, 'approvedList'])->name('staffs.approvedList');
-
+      Route::get('tor/{id}', [SessionsController::class, 'process'])->name('staffs.tor');
 
       //Admin Dashboard
       Route::get('/admin/dashboard', [SessionsController::class, 'adminDashboard'])->name('admins.dashboard');

@@ -27,19 +27,5 @@ class EmployeeRegistrationController extends Controller
         } catch (Exception $exception) {
             return $exception->getMessage();
         }
-
-        $request->session()->regenerate();
-        switch(auth()->user()->role) {
-            case 2:
-                return view('staffs.dashboard');
-            case 3:
-                return view('admins.dashboard');
-        }
-        return back()
-            ->withInput()
-            ->withErrors([
-                'email' => 'Incorrect email',
-                'password' => 'Incorrect password'
-            ]);
     }
 }

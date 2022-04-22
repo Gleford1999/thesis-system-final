@@ -91,6 +91,13 @@ class SessionsController extends Controller
         return redirect()->route('admins.dashboard');
      }
 
+     public function process($id) {
+        $requests = Requests::find($id);
+        return view ('/staffs/tor', [
+            'requests' => $requests
+        ]);
+     }
+
 
 
     // public function destroy(){

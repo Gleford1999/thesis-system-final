@@ -4231,6 +4231,9 @@ textarea.form-control.is-invalid {
 .border-dotted {
   border-style: dotted;
 }
+.border-black-100 {
+  border-color: #000;
+}
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -4312,6 +4315,10 @@ textarea.form-control.is-invalid {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.px-12 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .px-4 {
   padding-left: 1rem;

@@ -55,7 +55,7 @@
                             <td class="border text-center px-8 py-4"> {{$request->purpose}}  </td>
                             <td class="border text-center px-8 py-4"> {{$request->transaction_mode}}  </td>
                             <td class="border text-center px-8 py-4"> 
-                              <a href="  " class=" btn bg-maroon-100 text-white"> Generate TOR </a>
+                              <a href=" {{ route ('staffs.tor', $request->id) }} " class=" btn bg-maroon-100 text-white"> Generate TOR </a>
                             </td>
                           </tr>
                         @endforeach
