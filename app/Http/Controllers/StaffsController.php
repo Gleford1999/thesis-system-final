@@ -47,7 +47,6 @@ class StaffsController extends Controller
      }
 
      public function saveProcess(storeTORRequest $request){
-
          return $request->validated();
         //  try {
         //     $details = StudentTorDetails::create($request->validated());
