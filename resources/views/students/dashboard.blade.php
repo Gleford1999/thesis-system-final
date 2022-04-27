@@ -22,8 +22,14 @@
             
               <li>
                 <a class="flex items-center px-4 py-2 text-gray-600 rounded-md hover:bg-gray-200"  href="/students/request-list">
-    
                   <span class="mx-4 font-medium">List of Request</span>
+                </a>
+              </li>
+
+              <p>Account</p>
+              <li>
+                <a class="flex items-center px-4 py-2 text-gray-600 rounded-md hover:bg-gray-200"  href="/students/profile">
+                  <span class="mx-4 font-medium">Profile</span>
                 </a>
               </li>
             </ul>

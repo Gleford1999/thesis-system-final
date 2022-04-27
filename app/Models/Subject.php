@@ -10,18 +10,11 @@ class Subject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'subject_name',
         'course_id',
         'code',
+        'subject_name',
         'units'
-
     ];
-    protected $casts = [
-        'subject_name' => 'array',
-        'code' => 'array',
-        'units' => 'array'
-    ];
-
 
     public function course()
     {

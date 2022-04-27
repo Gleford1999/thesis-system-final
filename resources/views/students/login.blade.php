@@ -10,7 +10,7 @@
             <img src="/img/id-card.png" alt="staff-logo">
             <div>Login</div>
         </h2>
-        <form method="post" action="{{ route('students.login') }}">
+        <form method="post" action="{{ route('user.login') }}">
         @csrf
             <div class="txt_field">
             <input type="email" name="email" required :value="old('email')" autofocus>

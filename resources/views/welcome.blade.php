@@ -19,38 +19,39 @@
     background-position:center;
     background-repeat:no-repeat;
     background-size: cover;
-    background-image: url('img/cdsga_BG.jpg');">
+    background-image: url('img/cdsga_BG (1).jpg');">
     <div class="container">
-        <img src="img/logo (2).png" class=" rounded mx-auto d-block" style="width:30%; height:30%; position: relative;" alt="school-logo">
+        <img src="img/logo (2).png" class=" rounded mx-auto d-block" style="width:40%; height: 50%; position: relative;" alt="school-logo">
     </div>
     <div class="container col"
     style="
     position: relative;
     width: 800px;
     height: 200px;
-    background-color:grey ;
+    background-color:transparent ;
     ">
  
-    <a class="adminpage btn btn-secondary" type="submit"
+ <button class="studentpage btn-secondary" type="submit"
     style="background-color: #800000;
     color: white;
-    font-weight:500;
+    font-family: monsteratt;
     font-size: 30px;
     position: relative;
-    height:100px;
     width: 200px;
+    height:100px;
     top: 50px;
     left: 40px;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1px;
-    " href="/employee/login">ADMIN</a>
+    padding: 1px;">
+        <a href="/employee/login" class="studentpage" style="color: white; font-size: 30px; position: relative; text-decoration:none;">ADMIN</a> </button>
     
  
-    <a class="btn" 
+    <button class="studentpage btn-secondary" type="submit"
     style="background-color: #800000;
     color: white;
+    font-family: monsteratt;
     font-size: 30px;
     position: relative;
     width: 200px;
@@ -60,24 +61,25 @@
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1px;
-    " href="/employee/login">STAFF</a>
+    padding: 1px;">
+        <a href="/employee/login" class="studentpage" style="color: white; font-size: 30px; position: relative; text-decoration:none;">STAFF</a> </button>
       
 
     <button class="studentpage btn-secondary" type="submit"
     style="background-color: #800000;
     color: white;
+    font-family: montseratt;
     font-size: 30px;
     position: relative;
     width: 200px;
     height:100px;
-    top: 60px;
+    top: 50px;
     left: 100px;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
     text-align: center;
-    padding: 1px;
-    "><a href="/student/login" class="studentpage" style="color: white; font-size: 30px; position: relative; text-decoration:none;">STUDENT</a> </button>
+    padding: 1px;">
+        <a href="/student/login" class="studentpage" style="color: white; font-size: 30px; position: relative; text-decoration:none;">STUDENT</a> </button>
     </div>
     </div>
 

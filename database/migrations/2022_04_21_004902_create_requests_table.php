@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('address');
             $table->string('course');
+            $table->string('elementary_school');
+            $table->string('elementary_yg');
+            $table->string('high_school');
+            $table->string('highschool_yg');
             $table->string('purpose');
             $table->string('transaction_mode');
             $table->string('receipt');

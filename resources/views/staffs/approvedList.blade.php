@@ -55,14 +55,14 @@
                             <td class="border text-center px-8 py-4"> {{$request->purpose}}  </td>
                             <td class="border text-center px-8 py-4"> {{$request->transaction_mode}}  </td>
                             <td class="border text-center px-8 py-4"> 
-                              <a href=" {{ route ('staffs.tor', $request->id) }} " class=" btn bg-maroon-100 text-white"> Generate TOR </a>
+                              <a href=" {{ route ('staffs.tor', $request->id) }} " class=" btn bg-maroon-100 text-white"> Process TOR </a>
                             </td>
                           </tr>
                         @endforeach
                         
                     </thead>
                 </table>
-                
+                <a href=" {{ URL::to('/staffs/generate-tor') }} ">Generate</a>
             </form>
         </div>
       </div>

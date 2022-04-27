@@ -10,9 +10,7 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-        'course_name',
-        'year',
-        'sem'
+        'course_name'
     ];
 
     public function subjects()

@@ -59,7 +59,7 @@
                             <td class="border text-center px-8 py-4"> {{$request->receipt}}  </td>
                             <td class="border text-center px-8 py-4"> {{$request->created_at}}  </td>
                             <td class="border text-center px-8 py-4"> 
-                              <a href=" {{route ('staffs.approve', $request->id) }} " class=" btn bg-maroon-100 text-white"> Approve </a>
+                              <a href=" {{route ('staffs.approve', $request->id) }} " class=" btn bg-maroon-100 text-white"> Approve </a> </br>
                               <a href="" class=" btn bg-maroon-100 text-white"> Reject </a>
                             </td>
                           </tr>

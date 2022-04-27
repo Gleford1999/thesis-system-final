@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLoginRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Requests;
 use App\Models\Student;
 use App\Models\User;
+use Exception;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,40 +19,21 @@ class StudentsController extends Controller
         return view('students.login');
     }
 
-    public function authenticate(Request $request){
-
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('students/dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.'
-        ])->onlyInput('email');
-    }
-
-
-
-
-    public function destroy(){
-        auth()->logout();
-
-        return redirect('/');
-    }
-
-
     //------Dashboard Control----------//
 
     public function studentDashboard(){
         return view('students.dashboard');
     }
 
+    public function profile(){
+        $student = Student::find(auth()->user()->student_id);
+        return view('students.profile')->with('student', $student);
+    }
+    public function update(UpdateProfileRequest $request) {
+    
+        $user=auth()->user();
+        
+    }
     public function request(){
         $student = Student::find(auth()->user()->student_id);
 
@@ -72,6 +55,10 @@ class StudentsController extends Controller
             'lastName'=>Auth()->user()->lastName,
             'address'=>Auth()->user()->address,
             'course'=>$student->course,
+            'elementary_school'=>$student->elementary_school,
+            'elementary_yg'=>$student->elementary_yg,
+            'high_school'=>$student->high_school,
+            'highschool_yg'=>$student->highschool_yg,
             'purpose'=>request('purpose'),
             'transaction_mode'=>request('mode'),
             'receipt'=>request('receipt')

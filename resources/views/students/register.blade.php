@@ -82,6 +82,24 @@
                     <input type="text" name="address" class="bg-gray-100 py-1.5 border border-1.5" size="70" required >
                 </div>
             </div>
+            <div class="mt-4 flex justify-center">
+                <div class="mt-4">
+                    <p>School Attended</p>
+    
+                    <label for="email"> Elementary: </label>
+                    <input type="text" name="elementary_school">
+                    <label for="elementary_yg"> Year Graduated </label>
+                    <input type="text" name="elementary_yg">
+                </div>
+            </div>
+            <div class="mt-4 flex justify-center">
+                <div class="mt-4">
+                    <label> High School: </label>
+                    <input type="text" name="high_school">
+                    <label> Year Graduated </label>
+                    <input type="text" name="highschool_yg">
+                </div>
+            </div>
             
             <div class="flex items-center justify-center">
                 <h2>Signup Credentials</h2>

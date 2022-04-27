@@ -26,26 +26,12 @@
       <div class="w-full h-full p-4 m-8 overflow-y-auto">
         <div class="flex items-center justify-center"> Add Subjects and Course </div>
         
-            <form action=" {{ route ('admins.store') }} " method="post">
+            <form action=" {{ route ('admins.store')}} " method="post">
               @csrf
             <div class="flex items-center justify-center border-4 ">
                 <div class="flex items-center justify-center  py-4 ">
-                    <label class="px-1" for="course">Course: </label>
-                    <input type="text" name="course_name" placeholder="Bachelor of Science in ">
-
-                    <label class="px-1" for=year">Year: </label>
-                    <select name="year" >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                    <label class="px-1" for="course">Semester: </label>
-                    <select name="sem" >
-                        <option value="1">1st</option>
-                        <option value="2">2nd</option>
-                        <option value="3">Summer</option>
-                    </select>
+                    <label class="px-1" for="course_name">Course: </label>
+                    <input type="text" name="course_name" size="50" placeholder="Bachelor of Science in ">
                 </div>
             </div>
                 <div class="mt-4">
@@ -79,7 +65,7 @@
                       </thead>
                   </table>   
                     <div class="col-md-12 px-4 mt-4"> 
-                      <button class="bg-maroon-100 text-white px-4">Save</button>
+                      <button type="submit" class="bg-maroon-100 text-white px-4">Save</button>
                     </div>
                   </div>
                </div>

@@ -28,9 +28,6 @@ class RegistrationController extends Controller
      session()->flash('success', 'Account created successfully!');
         auth()->login($user);
         return view('students.dashboard');
-    
-
-    
-    
 }
+    
 }

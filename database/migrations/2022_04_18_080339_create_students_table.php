@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('student_id');
             $table->string('course');
+            $table->string('major')->nullable();
             $table->string('year');
+            $table->string('elementary_school');
+            $table->string('elementary_yg');
+            $table->string('high_school');
+            $table->string('highschool_yg');
             $table->timestamps();
         });
     }

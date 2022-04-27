@@ -12,7 +12,12 @@ class Student extends Model
     protected $fillable = [
         'student_id',
         'course',
-        'year'
+        'major',
+        'year',
+        'elementary_school',
+        'elementary_yg',
+        'high_school',
+        'highschool_yg'
     ];
 
     public function user() {

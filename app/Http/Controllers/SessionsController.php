@@ -26,6 +26,9 @@ class SessionsController extends Controller
     }
 
     public function adminDashboard(){
+        // $course = Course::find(1);
+        // return $course->load('subjects');
+        // return Subject::where('course_id', 1)->get();
         return view('admins.dashboard');
     }
 
@@ -41,9 +44,9 @@ class SessionsController extends Controller
             $request->session()->regenerate();
             switch(auth()->user()->role) {
                 case 2:
-                    return view('staffs.dashboard');
+                    return redirect()->route('staffs.dashboard');
                 case 3:
-                    return view('admins.dashboard');
+                    return redirect()->route('admins.dashboard');
             }
             return back()
                 ->withInput()
@@ -54,55 +57,9 @@ class SessionsController extends Controller
         }
     }
 
-     //----Staffs Dashboard----//
+    public function destroy(){
+        auth()->logout();
 
-     public function requestList() {
-        $requests = Requests::where('status', 'pending')->get();
-        return view ('staffs.requests', [
-            'requests' => $requests
-        ]);
-     }
-
-     public function approve($id) {
-        $requests = Requests::find($id);
-        $requests->status='approved';
-        $requests->save();
-        return redirect()->back();
-     }
-
-     public function approvedList() {
-        $requests = Requests::where('status', 'approved')->get();
-        return view ('staffs.approvedList', [
-            'requests' => $requests
-        ]);
-     }
-
-     public function storeCS(StoreAdminRequest $request) {
-        try {
-            $course = Course::create($request->validated());
-
-             Subject::create(array_merge($request->validated(), ['course_id' => $course->id]));
-
-
-        } catch (\Throwable $th) {
-    
-        }
-       
-        return redirect()->route('admins.dashboard');
-     }
-
-     public function process($id) {
-        $requests = Requests::find($id);
-        return view ('/staffs/tor', [
-            'requests' => $requests
-        ]);
-     }
-
-
-
-    // public function destroy(){
-    //     auth()->logout();
-
-    //     return redirect('/students/login');
-    // }
+        return redirect('/');
+    }
 }

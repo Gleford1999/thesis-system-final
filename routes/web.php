@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\EmployeeRegistrationController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\StaffsController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
@@ -33,14 +36,14 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/employee/registration', [EmployeeRegistrationController::class, 'create']);
     Route::post('/employee/registration', [EmployeeRegistrationController::class, 'store'])->name('employee.register');
     
-
+    
     //Student Login
     Route::get('/student/login', [StudentsController::class, 'create']);
-    Route::post('/student/login', [StudentsController::class, 'authenticate'])->name('students.login');
+    
 
     //Employee Login
     Route::get('/employee/login', [SessionsController::class, 'create']);
-    Route::post('employee/login', [SessionsController::class, 'store'])->name('employee.login');
+    Route::post('dashboard', [SessionsController::class, 'store'])->name('user.login');
 
 });
     
@@ -51,18 +54,22 @@ Route::middleware(['auth'])->group(function(){
       Route::get('/students/request', [StudentsController::class, 'request']);
       Route::get('/students/request-list', [StudentsController::class, 'list'])->name('students.request-list');
       Route::post('students/request', [StudentsController::class, 'storeRequest'])->name('students.request');
+      Route::get('/students/profile', [StudentsController::class, 'profile']);
+      Route::put('/students/profile', [StudentsController::class, 'update'])->name('student.update');
       
       //Staffs Dashboard
-      Route::get('/staffs/dashboard', [SessionsController::class, 'staffDashboard']);
-      Route::get('/staffs/requests', [SessionsController::class, 'requestList'])->name('staffs.requests');
-      Route::get('approve/{id}', [SessionsController::class, 'approve'])->name('staffs.approve');
-      Route::get('/staffs/approved-requests', [SessionsController::class, 'approvedList'])->name('staffs.approvedList');
-      Route::get('tor/{id}', [SessionsController::class, 'process'])->name('staffs.tor');
+      Route::get('/staffs/dashboard', [SessionsController::class, 'staffDashboard'])->name('staffs.dashboard');
+      Route::get('/staffs/requests', [StaffsController::class, 'requestList'])->name('staffs.requests');
+      Route::get('approve/{id}', [StaffsController::class, 'approve'])->name('staffs.approve');
+      Route::get('/staffs/approved-requests', [StaffsController::class, 'approvedList'])->name('staffs.approvedList');
+      Route::get('tor/{id}', [StaffsController::class, 'process'])->name('staffs.tor');
+      Route::post('staffs/saveTOR', [StaffsController::class, 'saveProcess'])->name('staffs.saveTOR');
+      Route::get('/staffs/generate-tor', [PDFController::class, 'generatePDF']);
 
       //Admin Dashboard
       Route::get('/admin/dashboard', [SessionsController::class, 'adminDashboard'])->name('admins.dashboard');
-      Route::post('admin/addCourse-Subject', [SessionsController::class, 'storeCS'])->name('admins.store');
+      Route::post('/admin/addCourse-Subject', [AdminsController::class, 'storeCS'])->name('admins.store');
       //Logout
-      Route::post('logout', [StudentsController::class, 'destroy']);
+      Route::post('logout', [SessionsController::class, 'destroy']);
 });
 
