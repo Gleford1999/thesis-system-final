@@ -16,9 +16,9 @@ class StudentTorDetails extends Model
         'admission_date',
         'credentials',
         'elementary',
-        'elem-year',
+        'elem_year',
         'highschool',
-        'hs-year',
+        'hs_year',
         'degree',
         'major', 
     ];

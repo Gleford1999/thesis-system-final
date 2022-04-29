@@ -9,22 +9,16 @@ class ToR extends Model
 {
     use HasFactory;
 
+    protected $table = 'tor';
     protected $fillable = [
         'student_id',
-        'school-year'.
-        'sem1',
-        'code1',
-        'subject1',
-        'credits1',
-        'grades1',
-        'remarks1',
-        'sem2',
-        'code2',
-        'subject2',
-        'credits2',
-        'grades2',
-        'remarks2',
-
+        'school_year',
+        'sem',
+        'code',
+        'subject',
+        'credits',
+        'grades',
+        'remarks',
     ];
 
     public function StudentTorDetails(){

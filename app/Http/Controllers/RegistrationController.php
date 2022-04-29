@@ -19,7 +19,7 @@ class RegistrationController extends Controller
     public function store(StoreStudentRequest $request){
      try {
          $students = Student::create($request->validated());
-         $user = User::create(array_merge($request->validated(), ['password' => Hash::make('password'), 'student_id' => $students->id]));
+         $user = User::create(array_merge($request->validated(), ['password' => Hash::make($request->password), 'student_id' => $students->id]));
          
      } catch (Exception $exception) {
         return $exception->getMessage();

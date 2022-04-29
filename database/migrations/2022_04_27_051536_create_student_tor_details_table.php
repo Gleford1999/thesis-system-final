@@ -21,10 +21,11 @@ return new class extends Migration
             $table->string('credentials');
             $table->string('elementary');
             $table->string('elem_year');
-            $table->timestamps('highschool');
-            $table->timestamps('hs-year');
-            $table->timestamps('degree');
-            $table->timestamps('major');
+            $table->string('highschool');
+            $table->string('hs_year');
+            $table->string('degree');
+            $table->string('major');
+            $table->timestamps();
         });
     }
 

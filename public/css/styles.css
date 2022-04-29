@@ -419,3 +419,9 @@ tr:nth-child(even) {background-color: grey;}
   margin: 30px auto;
   font-size: 15px;
 }
+
+.error{
+  color: #ac0000;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

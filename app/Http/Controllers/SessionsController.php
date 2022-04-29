@@ -35,7 +35,7 @@ class SessionsController extends Controller
     public function store(Request $request){
         
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'exists:users,email'],
             'password' => ['required'],
         ]);
 
@@ -48,12 +48,16 @@ class SessionsController extends Controller
                 case 3:
                     return redirect()->route('admins.dashboard');
             }
-            return back()
-                ->withInput()
-                ->withErrors([
-                    'email' => 'Incorrect email',
-                    'password' => 'Incorrect password'
-                ]);
+
+            throw ValidationException::withMessages([
+                'email' => 'Provided credential not found.'
+            ]);
+            // return back()
+            //     ->withInput()
+            //     ->withErrors([
+            //         ,
+            //         'password' => 'Incorrect password'
+            //     ]);
         }
     }
 

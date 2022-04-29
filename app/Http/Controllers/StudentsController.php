@@ -26,13 +26,37 @@ class StudentsController extends Controller
     }
 
     public function profile(){
-        $student = Student::find(auth()->user()->student_id);
-        return view('students.profile')->with('student', $student);
+        $user = User::find(auth()->user()->id);
+        $user->load('student');
+        // return $user;
+
+        return view('students.profile', [
+            'user' => $user,
+            'student' => $user->student,
+        ]);
     }
-    public function update(UpdateProfileRequest $request) {
-    
-        $user=auth()->user();
+    public function update(Request $request) {
+      
+        $user = User::find($request->id);
+        $user->firstName = $request->firstName;
+        $user->middleName = $request->middleName;
+        $user->lastName = $request->lastName;
+        $user->birthday = $request->birthday;
+        $user->gender = $request->gender;
+        $user->civil_status = $request->status;
+        $user->address = $request->address;
+        $user->save();
+
+        $student = Student::find($request->id);
+        $student->student_id = $request->student_id;
+        $student->course = $request->course;
+        $student->elementary_school = $request->elementary_school;
+        $student->elementary_yg = $request->elementary_yg;
+        $student->high_school = $request->high_school;
+        $student->highschool_yg = $request->highschool_yg;
+        $student->save();
         
+        return redirect()->back();
     }
     public function request(){
         $student = Student::find(auth()->user()->student_id);
@@ -76,5 +100,9 @@ class StudentsController extends Controller
         return view('students.request-list', [
          'requests' => $requests
         ]);
+    }
+
+    public function about() {
+        return view('students.about');
     }
 }

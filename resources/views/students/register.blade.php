@@ -4,9 +4,9 @@
 
     <form action=" {{ route ('students.register')}} " method="post">
         @csrf
-        <h1 class="mt-4 flex items-center justify-center">Registration</h1>
+        <h1 class="mt-4 flex items-center justify-center text-lg font-bold">Registration</h1>
 
-        <div class="flex items-center justify-center mt-4">
+        <div class="flex items-center justify-center mt-4 text-lg bg-maroon-100 text-white">
             <h2 class="block">School Information</h2>
         </div>
 
@@ -51,11 +51,20 @@
             </div>
             </div>
 
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center mt-4 bg-maroon-100 text-white text-lg">
                 <h2>Personal Information</h2>
             </div>
 
             <div class="flex items-center justify-center">
+                <div class="mt-4 px-6">
+                    <label for="complete_address" class="block"> Complete Address</label> 
+                    <input type="text" name="address" class="bg-gray-100 py-1.5 border border-1.5" size="70" required >
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+              
+
                 <div class="mt-4 px-6 ">
                     <label for="birthday"> Birthday</label> 
                     <input type="date" name="birthday" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
@@ -76,22 +85,19 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-center">
-                <div class="mt-4 px-6">
-                    <label for="complete_address" class="block"> Complete Address</label> 
-                    <input type="text" name="address" class="bg-gray-100 py-1.5 border border-1.5" size="70" required >
-                </div>
+            <div class="flex items-center justify-center mt-4 bg-maroon-100 text-white text-lg">
+                <p>School Attended</p>
             </div>
+           
             <div class="mt-4 flex justify-center">
                 <div class="mt-4">
-                    <p>School Attended</p>
-    
                     <label for="email"> Elementary: </label>
                     <input type="text" name="elementary_school">
                     <label for="elementary_yg"> Year Graduated </label>
                     <input type="text" name="elementary_yg">
                 </div>
             </div>
+
             <div class="mt-4 flex justify-center">
                 <div class="mt-4">
                     <label> High School: </label>
@@ -101,20 +107,22 @@
                 </div>
             </div>
             
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center mt-4 bg-maroon-100 text-white text-lg">
                 <h2>Signup Credentials</h2>
             </div>
 
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center mt-4">
+               <div class="px-4">
                 <label for="email">Email: </label>
-                <input type="email" name="email" class="bg-gray-100 py-1.5 border border-solid" required>
+                <input type="email" name="email" class="bg-gray-100 py-1.5 px-4 border border-solid" required>
+               </div>
 
                 <label for="password">Password: </label>
-                <input type="password" name="password" class="bg-gray-100 py-1.5 border border-solid" required>
+                <input type="password" name="password" class="bg-gray-100 py-1.5 px-1.5 border border-solid" required>
 
-                <!-- Confirm Password -->
+                <!-- Confirm Password
                 <label for="password_confirmation">Confirm Password:</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="bg-gray-100 py-1.5 border border-solid" required>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="bg-gray-100 py-1.5 border border-solid" required> -->
             </div>
         
             <div class="mt-4 invisible">
@@ -125,10 +133,21 @@
             </div>
 
             <div class="flex items-center justify-center">
-                <div class="mt-4">
+                <div class="mt-4 mb-4 py-4 px-4">
                     <button type="submit" class="bg-maroon-100 text-white py-1 px-6 rounded"> Submit</button>
                 </div>
+                
+                <div class="mt-4 mb-4 py-4">
+                    <a href="/student/login" type="submit" class="bg-maroon-100 text-white py-1 px-6 rounded"> Cancel </a>
+                </div>
             </div>
+
+            @if ($errors->any)
+                @foreach ($errors->all() as $error)
+                        <li class="text-red text-xs mt-1 px-4 py-4">{{$error}}</li>
+                @endforeach
+            @endif
+           
     </form>
    
 @endsection

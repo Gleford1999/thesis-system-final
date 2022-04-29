@@ -30,6 +30,13 @@
             <div class="signup_link">
             No Account yet? <a href="/students/registration">Signup Here!</a>
             </div>
+
+            
+            @if($errors->any)
+            @foreach ($errors->all() as $error)
+                    <li class="error">{{$error}}</li>
+            @endforeach
+             @endif
         </form>
         </div>
 @endsection

@@ -18,14 +18,17 @@ class EmployeeRegistrationController extends Controller
     }
 
     public function store(StoreEmployeeRequest $request){
+        // return $request;
         try {
             $id = IdGenerator::generate(['table'=>'employees', 'field'=>'employee_id', 'length'=>'10', 'prefix'=>date('ym')]);
 
             $employee = Employee::create(array_merge($request->validated(), ['employee_id'=> $id]));
 
-            User::create(array_merge($request->validated(), ['password' => Hash::make('password'), 'employee_id' => $employee->id]));
+            User::create(array_merge($request->validated(), ['password' => Hash::make($request->password), 'employee_id' => $employee->id]));
         } catch (Exception $exception) {
             return $exception->getMessage();
         }
-    }
+
+        return redirect('/employee/login');
+    }   
 }

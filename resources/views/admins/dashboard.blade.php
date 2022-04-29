@@ -2,82 +2,81 @@
 
 @section('content')
 
+<div class="flex" style="background-color: lightgray;">
+      
+  <div class="container flex"
+      style="margin:auto; padding:auto;
+        font-family: Century Gothic;
+        justify-content: center;
+        background-color:transparent;
 
+        position: relative;
+        width:1100px;
+        height: 490px;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 30px;
+        margin-top: 10px;">
 
-<div class="flex ">
-      <div class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r">
-        
-
-
-        <div class="flex flex-col justify-between mt-6">
-          <aside>
-            <ul>
-              <li>
-                <a class="flex items-center px-4 py-2 mt-2 text-gray-600 rounded-md bg-gray-200"  href="#">
-                  <span class="mx-4 font-medium">Course and Subjects</span>
-                </a>
-              </li>
-            </ul>
-
-          </aside>
-          
-        </div>
+    <button class="card col flex rounded border-4 border-solid"
+      style="width: 300px;
+      height: 400px;
+      position: relative;
+      margin: 30px 15px;
+      margin-top: 5px;
+      padding: 30px 30px;
+      border-radius: 10px;
+      border-color: maroon;
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.5);">
+      <div class="img" style="width:250px; text-align:center;">
+        <a href="/admin/addCourse&Subjects">
+          <img class="rounded mx-auto d-block"src="/img/dashboard/file-text.png" alt="" style="margin-top: 10px;  margin-bottom: 50px; width: 75%;"><hr>
+          <h1 style="color: black; font-size: 40px; margin-top: 5px;"> Course & Subjects</h1>
+        </a>
       </div>
-      <div class="w-full h-full p-4 m-8 overflow-y-auto">
-        <div class="flex items-center justify-center"> Add Subjects and Course </div>
-        
-            <form action=" {{ route ('admins.store')}} " method="post">
-              @csrf
-            <div class="flex items-center justify-center border-4 ">
-                <div class="flex items-center justify-center  py-4 ">
-                    <label class="px-1" for="course_name">Course: </label>
-                    <input type="text" name="course_name" size="50" placeholder="Bachelor of Science in ">
-                </div>
-            </div>
-                <div class="mt-4">
-                   
-                </div>
-                <div class="flex items-center justify-center border-4 py-4">
-                  <div class=" border-4 py-4 px-4">
-                    <table class="auto" id="dynamicAddRemove">
-                    <thead>
-                      <tr>
-                        <th class="border text-center px-8 py-4">Subject Code</th>
-                        <th class="border text-center px-8 py-4">Subject</th>
-                        <th class="border text-center px-8 py-4">Units</th>
-                        <th class="border text-center px-8 py-4"> Action </th>
-                        <th> </th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                     
-                      <tbody>
-                      
-                        <tr>
-                            <td class="border text-center px-8 py-4"> <input type="text" name="code[]" > </td>
-                            <td class="border text-center px-8 py-4"> <input type="text" name="subject_name[]" > </td>
-                            <td class="border text-center px-8 py-4"> <input type="text" name="units[]" > </td>
-                            <td class="border text-center px-8 py-4"> <input class = "bg-maroon-100 text-white px-1" name="add" id="dynamic-ar" type="button" value="Add"> </td>
-                        </tr>
-                    
-                       
-                      </tbody>
-                      </thead>
-                  </table>   
-                    <div class="col-md-12 px-4 mt-4"> 
-                      <button type="submit" class="bg-maroon-100 text-white px-4">Save</button>
-                    </div>
-                  </div>
-               </div>
-            </form>
+    </button>
+
+    <div>
+      <button class="card col flex rounded border-4 border-solid"
+      style="width: 300px;
+      height: 185px;
+      position: relative;
+      margin: 30px 15px;
+      margin-top: 5px;
+      padding: 30px 30px;
+      border-radius: 10px;
+      border-color: maroon;
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.5);">
+      <div style="width:250px; text-align:center;">
+        <a href="/admin/profile">
+          <img class="rounded mx-auto d-block"src="/img/dashboard/user.png" alt="" style="margin-bottom: 10px; width: 30%;"><hr>
+          <h1 style="color: black; font-size: 40px; margin-top: 5px;">Profile</h1>
+        </a>
       </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"> 
-  $("#dynamic-ar").click(function() {
-      $('#dynamicAddRemove').append(' <tr> <td class="border text-center px-8 py-4"> <input type="text" name="code[]" > </td> <td class="border text-center px-8 py-4"> <input type="text" name="subject_name[]" > </td>  <td class="border text-center px-8 py-4"> <input type="text" name="units[]" > </td>  <td class="border text-center px-8 py-4"> <button class="bg-maroon-100 text-white remove-input-field">Delete</button>  </td>  </tr>  ');
-  });
-  $(document).on('click', '.remove-input-field', function (){
-    $(this).parents('tr').remove();
-  });
-</script>
+      </button>
+
+      <button class="card col flex rounded border-4 border-solid"
+        style="width: 300px;
+        height: 185px;
+        position: relative;
+        margin: 30px 15px;
+        margin-top: 5px;
+        padding: 30px 30px;
+        border-radius: 10px;
+        border-color: maroon;
+        box-shadow: 10px 10px 15px rgba(0,0,0,0.5);">
+      <div style="width:250px; text-align:center;">
+        <a href="/admin/about">
+          <img class="rounded mx-auto d-block"src="/img/dashboard/info.png" alt="" style="margin-bottom: 10px; width: 30%;"><hr>
+          <h1 style="color: black; font-size: 40px; margin-top: 5px;">About</h1>
+        </a>
+      </div>
+      </button>
+
+    </div>
+    
+  </div>
+
+</div>
+
 @endsection

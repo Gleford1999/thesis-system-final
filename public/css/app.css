@@ -4237,6 +4237,9 @@ textarea.form-control.is-invalid {
 .border-black-100 {
   border-color: #000;
 }
+.border-maroon {
+  border-color: maroon;
+}
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -4436,6 +4439,10 @@ textarea.form-control.is-invalid {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-red{
+  --tw-text-opacity: 1;
+  color: red;
 }
 .text-blue-600 {
   --tw-text-opacity: 1;

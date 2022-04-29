@@ -24,21 +24,21 @@ class StoreStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => ['required'],
-            'middleName' => ['required'],
-            'lastName' => ['required'],
-            'student_id' => ['required'],
-            'course' => ['required'],
-            'year' => ['required'],
-            'elementary_school' => ['required'],
-            'elementary_yg' => ['required'],
-            'high_school' => ['required'],
-            'highschool_yg' => ['required'],
+            'firstName' => ['required', 'max:255'],
+            'middleName' => ['required', 'max:255'],
+            'lastName' => ['required', 'max:255'],
+            'student_id' => ['required', 'max:10', 'min:10', 'unique:students,student_id'],
+            'course' => ['required', 'max:255'],
+            'year' => ['required', 'max:255'],
+            'elementary_school' => ['required', 'max:255'],
+            'elementary_yg' => ['required', 'max:255'],
+            'high_school' => ['required', 'max:255'],
+            'highschool_yg' => ['required', 'max:255'],
             'birthday' => ['required'],
             'gender' => ['required'],
             'civil_status' => ['required'],
-            'address' => ['required'],
-            'email' => ['required', 'email'],
+            'address' => ['required', 'max:500'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required'],
             'role' => ['required']
         ];

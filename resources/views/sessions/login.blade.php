@@ -3,6 +3,7 @@
     @section('content')
     <div class="logo">
     <img src="/img/TOR.png" alt="system-logo">
+
     </div>
 
     <div class="right">
@@ -16,9 +17,7 @@
             <input type="email" name="email" required :value="old('email')" autofocus>
             <span></span>
             <label>Email</label>
-            @error('email')
-                <p class=" text-red-500 text-xs mt-1 "> {{ $message }} </p>
-            @enderror
+         
             </div>
             <div class="txt_field">
             <input id="password" type="password" name="password" required autocomplete="current-password">
@@ -35,6 +34,12 @@
             No Account yet? <a href=" {{ route ('employee.register') }} ">Signup Here!</a>
             </div>
 
+            @if($errors->any)
+            @foreach ($errors->all() as $error)
+                    <li class="error">{{$error}}</li>
+            @endforeach
+             @endif
         </form>
         </div>
+
 @endsection

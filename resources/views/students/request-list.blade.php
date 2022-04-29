@@ -32,12 +32,12 @@
       <div class="w-full h-full p-4 m-8 overflow-y-auto">
         <div class="mt-2 ml-2 flex items-center justify-center w-2/4">
             <form action="{{ route ('students.request-list') }}" method="get">
-                <table class="auto shadow-lg bg-white border-separate">
+                <table class="shadow-lg bg-white border-separate text-center">
                     <thead>
                         <tr>
                            
                             <th class="border text-left px-8 py-4"> Transaction Code</th>
-                            <th class="border text-left px-8 py-4"> Purpose </th>
+                            <th class="border text-left px-8 py-4  "> Purpose </th>
                             <th class="border text-left px-8 py-4"> Status </th>
                             <th class="border text-left px-8 py-4"> Claim Schedule </th>
                         </tr>

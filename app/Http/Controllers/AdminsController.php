@@ -5,10 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdminRequest;
 use App\Models\Course;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminsController extends Controller
 {
+
+    public function create(){
+        return view('admins.addcs');
+    }
+
+    public function view(){
+        return view('admins.about');
+    }
+
     public function storeCS(StoreAdminRequest $request) {
         try {
 
@@ -30,5 +40,15 @@ class AdminsController extends Controller
         }
        
         return redirect()->route('admins.dashboard');
+     }
+
+     public function profile() {
+        $user = User::find(auth()->user()->id);
+        $employee = $user->load('Employee');
+
+        return view('admins.profile', [
+            'user' => $user,
+            'employee' => $employee
+        ]);
      }
 }

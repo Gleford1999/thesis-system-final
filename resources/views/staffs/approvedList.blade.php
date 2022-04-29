@@ -27,6 +27,12 @@
                   <span class="mx-4 font-medium">Approved Requests</span>
                 </a>
               </li>
+
+              <li>
+                <a class="flex items-center  py-2 mt-2 text-gray-600 rounded-md hover:bg-gray-200"  href="{{ route ('staffs.records')}}">
+                  <span class="mx-4 font-medium">TOR Records</span>
+                </a>
+              </li>
             </ul>
 
           </aside>
@@ -37,11 +43,10 @@
         <div class="flex items-center justify-center ">
             <form action="{{ route ('staffs.approvedList') }}" method="get">
               @csrf
-                <table>
+              <table class="bg-white">
                     <thead>
                         <tr>
                             <th class="border text-center px-8 py-4"> Transaction Number </th>
-                            
                             <th class="border text-center px-8 py-4"> Name </th>
                             <th class="border text-center px-8 py-4"> Purpose </th>
                             <th class="border text-center px-8 py-4"> Transaction Mode </th>
@@ -55,14 +60,13 @@
                             <td class="border text-center px-8 py-4"> {{$request->purpose}}  </td>
                             <td class="border text-center px-8 py-4"> {{$request->transaction_mode}}  </td>
                             <td class="border text-center px-8 py-4"> 
-                              <a href=" {{ route ('staffs.tor', $request->id) }} " class=" btn bg-maroon-100 text-white"> Process TOR </a>
+                              <a href=" {{ route ('staffs.tor', $request->id) }} " class=" btn bg-maroon-100 text-white rounded"> Process TOR </a>
                             </td>
                           </tr>
                         @endforeach
                         
                     </thead>
                 </table>
-                <a href=" {{ URL::to('/staffs/generate-tor') }} ">Generate</a>
             </form>
         </div>
       </div>
