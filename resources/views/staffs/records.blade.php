@@ -42,7 +42,7 @@
       </div>
       <div class="w-full h-full p-4 m-8 overflow-y-auto">
 
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center bg-maroon-100 text-white text-lg font-bold">
             <h1 class=" font-bold"> Available Student TOR </h1>
         </div>
 
@@ -62,6 +62,9 @@
                             <td class="border text-center px-8 py-4"> {{$detail->degree}} </td>
                             <td class="border text-center px-8 py-4">  
                               <a href=" {{ route ('staffs.showtor', $detail->id) }}" class="bg-maroon-100 text-white px-2 py-3 rounded-md">Generate TOR</a>
+                              
+                              <a href=" {{ route ('staffs.editTor', $detail->id) }}" class="bg-maroon-100 text-white px-2 py-3 rounded-md">Edit TOR</a>
+                              
                             </td>
                         </tr>
                         @endforeach

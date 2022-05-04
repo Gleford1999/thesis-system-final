@@ -24,6 +24,6 @@ class StudentTorDetails extends Model
     ];
 
     public function ToR(){
-        return $this->hasMany(ToR::class);
+        return $this->hasMany(ToR::class, 'student_id', 'id');
     }
 }

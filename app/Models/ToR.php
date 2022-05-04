@@ -10,6 +10,7 @@ class ToR extends Model
     use HasFactory;
 
     protected $table = 'tor';
+    
     protected $fillable = [
         'student_id',
         'school_year',
@@ -22,6 +23,6 @@ class ToR extends Model
     ];
 
     public function StudentTorDetails(){
-        return $this->belongsTo(StudentTorDetails::class);
+        return $this->belongsTo(StudentTorDetails::class, 'student_id', 'id');
     }
 }

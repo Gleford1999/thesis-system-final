@@ -83,11 +83,28 @@
                             </select>
                     </div>
               </div>
+                
+              <div class="border-4 border-maroon mt-4">
+                <div class="flex items-center justify-center mt-4">
+                  <h1><strong> Receipt Information </strong></h1>
+              </div>
 
-                <div class="mt-4 ml-2 px-2 flex items-center justify-center">
-                    <label class="px-4" for="receipt">Upload receipt here: </label>
-                    <input class=" border-solid"  type="file" name="receipt" >
-                </div>
+              <div class="mt-4 flex items-center justify-center">
+                  <div class="px-4">
+                    <label for="receipt_num"> Receipt Number: </label>
+                    <input type="text" name="receipt_num" required>
+
+                    <label for="receipt_num"> Amount of Payment: </label>
+                    <input type="text" name="payment_amount">
+                  </div>
+              </div>
+
+              <div class=" py-4 flex items-center justify-center">
+                <label for="receipt_num"> Date of Payment: </label>
+                <input type="date" name="payment_date" required>
+              </div>
+
+              </div>
 
                 <div class="mt-4 flex items-center justify-center">
                 <button type="submit" class="bg-maroon-100 ml-4 px-4 py-2 rounded-md-1 text-white">Submit Request</button>

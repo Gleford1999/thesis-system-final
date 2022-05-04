@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminRequest;
 use App\Models\Course;
+use App\Models\Grades;
 use App\Models\Subject;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 
 class AdminsController extends Controller
@@ -17,6 +19,22 @@ class AdminsController extends Controller
 
     public function view(){
         return view('admins.about');
+    }
+
+    public function add(){
+        return view('admins.grades');
+    }
+
+    public function addGrades(Request $request){
+        try {
+          Grades::create([
+                'grades' => $request->grades,
+                'remarks' => $request->remarks
+            ]);
+          return redirect()->back();
+        } catch ( Exception $exception ) {
+            return $exception->getMessage();
+        }
     }
 
     public function storeCS(StoreAdminRequest $request) {

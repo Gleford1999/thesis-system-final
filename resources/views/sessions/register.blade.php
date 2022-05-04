@@ -90,8 +90,11 @@
         
 
             <div class="flex items-center justify-center">
-                <div class="mt-4">
+                <div class="mt-4 px-4">
                     <button type="submit" class="bg-maroon-100 text-white py-1 px-6 rounded"> Submit</button>
+                </div>
+                <div class="mt-4 mb-4 py-4">
+                    <a href="/employee/login" type="submit" class="bg-maroon-100 text-white py-1 px-6 rounded"> Cancel </a>
                 </div>
             </div>
 

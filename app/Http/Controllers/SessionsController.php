@@ -48,9 +48,11 @@ class SessionsController extends Controller
                 case 3:
                     return redirect()->route('admins.dashboard');
             }
+            
 
             throw ValidationException::withMessages([
-                'email' => 'Provided credential not found.'
+                'email' => 'Provided credential not found.',
+                'password' => 'Incorrect Password'
             ]);
             // return back()
             //     ->withInput()

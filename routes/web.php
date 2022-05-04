@@ -64,11 +64,12 @@ Route::middleware(['auth'])->group(function(){
       Route::get('approve/{id}', [StaffsController::class, 'approve'])->name('staffs.approve');
       Route::post('approve/request', [StaffsController::class, 'approveRequest'])->name('staffs.approveRequest');
       Route::get('/staffs/approved-requests', [StaffsController::class, 'approvedList'])->name('staffs.approvedList');
+      Route::get('/staffs/approved-requests-rush', [StaffsController::class, 'approvedListRush'])->name('staffs.approvedListRush');
       Route::get('tor/{id}', [StaffsController::class, 'process'])->name('staffs.tor');
       Route::post('staffs/saveTOR', [StaffsController::class, 'saveProcess'])->name('staffs.saveTOR');
       Route::get('staffs/records', [StaffsController::class, 'records'])->name('staffs.records');
       Route::get('view/tor/{id}', [StaffsController::class, 'show'])->name('staffs.showtor');
-      
+      Route::get('staffs/tor/{id}', [StaffsController::class, 'editTor'])->name('staffs.editTor');
       Route::get('staffs/about', [StaffsController::class, 'about']);
       Route::get('staffs/profile', [StaffsController::class, 'profile']);
       Route::post('staffs/profileUpdate', [StaffsController::class, 'updateProfile'])->name('staffs.profileUpdate');
@@ -84,3 +85,5 @@ Route::middleware(['auth'])->group(function(){
       Route::post('logout', [SessionsController::class, 'destroy']);
 });
 
+Route::get('admin/GradesAndRemarks', [AdminsController::class, 'add']);
+Route::post('admin/addGradesAndRemarks', [AdminsController::class, 'addGrades'])->name('admin.grades');

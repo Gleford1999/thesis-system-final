@@ -51,7 +51,6 @@
                           <th class="border text-center px-8 py-4"> Name </th>
                           <th class="border text-center px-8 py-4"> Purpose </th>
                           <th class="border text-center px-8 py-4"> Transaction Mode </th>
-                          <th class="border text-center px-8 py-4"> Receipt </th>
                           <th class="border text-center px-8 py-4"> Date Requested</th>
                           <th class="border text-center px-8 py-4"> Action </th>
                       </tr>
@@ -62,7 +61,6 @@
                           <td class="border text-center"> {{$request->firstName}} {{$request->lastName}}   </td>
                           <td class="border text-center px-8 py-4"> {{$request->purpose}}  </td>
                           <td class="border text-center px-8 py-4"> {{$request->transaction_mode}}  </td>
-                          <td class="border text-center px-8 py-4"> {{$request->receipt}}  </td>
                           <td class="border text-center px-8 py-4"> {{$request->created_at}}  </td>
                           <td class="border text-center px-8 py-4"> 
                             <a href=" {{route ('staffs.approve', $request->id) }} " class=" btn text-white ml-10 p-5 rounded" style="background-color: maroon;"> Update </a>

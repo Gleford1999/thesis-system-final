@@ -29,13 +29,13 @@
               </li>
 
               <li>
-                <a class="flex items-center py-2 text-gray-600 rounded-md  bg-gray-200"  href="/staffs/approved-requests">
+                <a class="flex items-center py-2 text-gray-600 rounded-md hover:bg-gray-200"  href="/staffs/approved-requests">
                   <span class=" px-4 ml-4 font-medium"> - Normal </span>
                 </a>
               </li>
 
               <li>
-                <a class="flex items-center py-2 text-gray-600 rounded-md hover:bg-gray-200"  href="/staffs/approved-requests-rush">
+                <a class="flex items-center py-2 text-gray-600 rounded-md bg-gray-200"  href="/staffs/approved-requests-rush">
                   <span class=" px-4 ml-4 font-medium"> - Rush </span>
                 </a>
               </li>

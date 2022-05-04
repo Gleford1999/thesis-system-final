@@ -85,7 +85,9 @@ class StudentsController extends Controller
             'highschool_yg'=>$student->highschool_yg,
             'purpose'=>request('purpose'),
             'transaction_mode'=>request('mode'),
-            'receipt'=>request('receipt')
+            'receipt_num'=>request('receipt_num'),
+            'payment_amount'=>request('payment_amount'),
+            'payment_date'=>request('payment_date'),
         ]);
 
         return view('students.dashboard');

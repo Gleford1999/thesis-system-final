@@ -25,6 +25,8 @@ class StoreAdminRequest extends FormRequest
     {
         return [
             'course_name' => ['required'],
+            'school_year' => ['required'],
+            'sem' => ['required'],
             'code' => ['required'],
             'subject_name' => ['required'],
             'units' => ['required'],

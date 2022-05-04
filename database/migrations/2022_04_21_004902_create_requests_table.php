@@ -28,7 +28,9 @@ return new class extends Migration
             $table->string('highschool_yg');
             $table->string('purpose');
             $table->string('transaction_mode');
-            $table->string('receipt');
+            $table->string('receipt_num');
+            $table->string('payment_amount');
+            $table->string('payment_date');
             $table->string('status')->default('pending');
             $table->string('schedule')->nullable();
             $table->timestamps();

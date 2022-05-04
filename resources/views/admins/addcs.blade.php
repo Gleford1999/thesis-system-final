@@ -31,8 +31,21 @@
             <div class="flex items-center justify-center border-4 ">
                 <div class="flex items-center justify-center  py-4 ">
                     <label class="px-1" for="course_name">Course: </label>
-                    <input type="text" name="course_name" size="50" placeholder="Bachelor of Science in ">
+                    <input type="text" name="course_name" size="50" placeholder="Bachelor of Science in Computer Science">
                 </div>
+
+                <div class="flex items-center justify-center  py-4 px-4 ">
+                  <label class="px-1" for="school_year">School Year: </label>
+                  <input type="text" name="school_year" placeholder="2018-2019 ">
+              </div>
+              <div class="flex items-center justify-center  py-4 px-1 ">
+                  <label class="px-1" for="sem">Sem: </label>
+                  <select name="sem">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="Summer">Summer</option>
+                  </select>
+              </div>
             </div>
                 <div class="mt-4">
                    

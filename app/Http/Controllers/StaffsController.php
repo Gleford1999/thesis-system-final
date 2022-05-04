@@ -43,10 +43,23 @@ class StaffsController extends Controller
      }
 
      public function approvedList() {
-        $requests = Requests::where('status', 'approved')->get();
+        $requests = Requests::where([
+            'status' => 'approved',
+            'transaction_mode' => 'normal'
+        ])->get();
         return view ('staffs.approvedList', [
             'requests' => $requests
         ]);
+     }
+
+     public function approvedListRush(){
+        $requests = Requests::where([
+            'status' => 'approved',
+            'transaction_mode' => 'rush'
+        ])->get();
+         return view('staffs.approvedListRush', [
+             'requests' => $requests
+         ]);
      }
 
 
@@ -205,16 +218,23 @@ class StaffsController extends Controller
     public function records(){
         
         $details = StudentTorDetails::all();
+    
         
-        return view('staffs.records', ['details' => $details]);
+        return view('staffs.records', [
+        'details' => $details,
+    ]);
     }
 
     public function show($id){
 
         $details = StudentTorDetails::find($id);
-        $tor = ToR::all()->where('student_id', $id)
-        ->where('sem', 1)
-        ->where('school_year', '2018-2019') ;
+       
+
+        $tor = ToR::where([
+            'student_id' => $id,
+            'sem' => 1,
+            'school_year' => '2018-2019'
+        ])->get();
 
         $tor1 = ToR::all()->where('student_id', $id)
             ->where('sem', 2)
@@ -288,9 +308,11 @@ class StaffsController extends Controller
     }
 
     public function editTor($id){
-        $tor = StudentTorDetails::find ($id);
+        $torDetails = StudentTorDetails::all();
+        $torDetails->load('ToR');
+    //    return $torDetails;
         return view('staffs.editTor', [
-            'tor' => $tor
+            'torDetails' => $torDetails
         ]);
     }
 

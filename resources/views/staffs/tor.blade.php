@@ -14,60 +14,67 @@
             <h1> Subject and Grade Profiling </h1>
         </div>
         
-        <div class="justify-center" style="background-color: lightgray;">
-            <div style="padding: 5px; margin:5px;">
-                <label> Student Name: </label>
-                <input type="text" name="name" value="{{ $requests->firstName }} {{ $requests->middleName}} {{ $requests->lastName }} " size="30"> <br>
-            </div>
-           
-            <div style="padding:5px; margin:5px;">
-                <label> Home Address: </label> 
-                <input type="text" name="address" value="{{ $requests->address }}" size="80"> <br>
-            </div>
-
-            <div style="padding:5px;  margin:5px;">
-            <label> Entrance Credentials: </label>
-            <input type="text" name="credentials" value="TOR">  <br>
-            </div>
-
-            <div style="padding:5px;  margin:5px;">
-            <label for="date" > Date of Admission: </label> 
-            <input type="text" name="admission_date" required>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label> Entrance Credentials: </label>
-            <input type="text" name="credentials" value="TOR">  <br>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label for="elementary"> Elementary School: </label> 
-            <input type="text" name="elementary" value="{{ $requests->elementary_school }}"><br>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label for="elem_year"> Year Graduated: </label> 
-            <input type="text" name="elem_year" value=" {{ $requests->elementary_yg }} " ><br>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label for="highschool" > High School: </label> 
-            <input type="text" name="highschool" value="{{ $requests->high_school }}"><br>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label for="hs_year"> Year Graduated: </label> 
-            <input type="text" name="hs_year" value="{{ $requests->highschool_yg }}" ><br>
-            </div>
-
-            <div style="padding:5px; margin:5px;">
-            <label> Degree Earned: </label>
-            <input type="text" name="degree" value="{{ $requests->course }}"> <br>
-            </div>
+       <div class="justify-center border-4 border-solid rounded" style="margin: auto; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; border-color: maroon; width: 900px; height: 570px;">
             
+            <div class="flex">
+                <div style="padding: 5px; margin:5px;">
+                    <label> Student Name: </label>
+                    <input type="text" name="name" value="{{ $requests->firstName }} {{ $requests->middleName}} {{ $requests->lastName }} " size="43" style="margin-left: 72px;"> <br>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label> Home Address: </label> 
+                    <input type="text" name="address" value="{{ $requests->address }}" size="76" style="margin-left: 70px;"> <br>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px;  margin:5px;">
+                    <label for="date" > Date of Admission: </label>
+                    <input type="text" name="admission_date" required size="43" style="margin-left: 45px;">
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label> Entrance Credentials: </label>
+                    <input type="text" name="credentials" value="TOR" size="43" style="margin-left: 24px;">
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label for="elementary"> Elementary School: </label> 
+                    <input type="text" name="elementary" value="{{ $requests->elementary_school }}" size="43" style="margin-left: 40px;"><br>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label for="elem_year"> Year Graduated: </label> 
+                    <input type="text" name="elem_year" value=" {{ $requests->elementary_yg }} " size="43" style="margin-left: 62px;"><br>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label for="highschool" > High School: </label> 
+                    <input type="text" name="highschool" value="{{ $requests->high_school }}" size="43" style="margin-left: 88px;"><br>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div style="padding:5px; margin:5px;">
+                    <label for="hs_year"> Year Graduated: </label> 
+                    <input type="text" name="hs_year" value="{{ $requests->highschool_yg }}" size="43" style="margin-left: 62px;"><br>
+                </div>
+            </div>
+
             <div style="padding:5px; margin:5px;">
-            <label> Major: </label> 
-            <input type="text" name="major" ><br><br>
+                <label> Degree Earned: </label>
+                <input type="text" name="degree" value="{{ $requests->course }}" size="43" style="margin-left: 65px;"> <br>
             </div>
 
         </div>
@@ -115,7 +122,7 @@
                             
                                 <td class="px-4 border-black-100 text-center">
                                     <span></span> </br>
-                                    <select name="code1[]">
+                                    <select name="code1[]" id="subjectCode">
                                         <option> -- </option>
                                         @foreach($subjects as $subject)
                                             <option value="{{$subject->code}}"> {{$subject->code}}</option>
@@ -124,12 +131,7 @@
                                 </td>
                                 <td class="px-6 border-r border-black-100 text-center"> 
                                     <span></span> </br>
-                                    <select name="subject1[]">
-                                        <option> -- </option>
-                                        @foreach($subjects as $subject)
-                                            <option value="{{$subject->subject_name}}"> {{$subject->subject_name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" name="subject1[]" size="40">
                                 </td>
                                 <td class="px-8 border-r border-black-100 text-center">
                                     <span></span> </br>
@@ -4362,6 +4364,19 @@
             <a href="{{ route('staffs.approvedList') }}" type="submit" class="bg-maroon-100 text-white px-5 rounded-md ml-1"> Back </a>
         </div>
     </form>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="'text/javascript">
+        $(document).ready(function(){
+            
+            $('#subjectCode').change(function(){
+                console.log("Changed!");
+
+            });
+        });
+    </script>
 </body>
+
+
+
 </html>
