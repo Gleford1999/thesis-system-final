@@ -72,11 +72,11 @@
                     <div class="flex items-center justify-center">
                         <div class="mt-4 px-4 ">
                             <label for="birthday" class="block"> Birthday</label>
-                            <input type="text" class="bg-gray-100 py-1.5 rounded" name="birthday" value="{{ $user->birthday }}" required>
+                            <input type="text" class="bg-gray-100 py-1.5 rounded" disabled value="{{ $user->birthday }}" required>
                         </div>
                         <div class="mt-4 px-4">
                             <label for="gender" class="block ">Gender</label>
-                            <input type="text" class="bg-gray-100 py-1.5 rounded" name="gender" value="{{ $user->gender }}" required>
+                            <input type="text" class="bg-gray-100 py-1.5 rounded" disabled value="{{ $user->gender }}" required>
                         </div>
                         <div class="mt-4 px-4">
                             <label for="civil_status" class="block">Civil Status</label>

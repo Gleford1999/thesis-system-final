@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('highschool');
             $table->string('hs_year');
             $table->string('degree');
-            $table->string('major');
             $table->timestamps();
         });
     }

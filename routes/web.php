@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EmployeeRegistrationController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\RegistrationController;
@@ -25,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('courses/getCourse', [CourseController::class, 'getCourse']);
 
 Route::middleware(['guest'])->group(function(){
     // Student Registration
@@ -74,6 +75,8 @@ Route::middleware(['auth'])->group(function(){
       Route::get('staffs/profile', [StaffsController::class, 'profile']);
       Route::post('staffs/profileUpdate', [StaffsController::class, 'updateProfile'])->name('staffs.profileUpdate');
       Route::get('/staffs/generate-tor', [PDFController::class, 'generatePDF'])->name('staffs.generate');
+    //   Route::get('findSubject', [StaffsController::class, 'findSubject']);
+      Route::get('findRemark', [StaffsController::class, 'findRemark']);
 
       //Admin Dashboard
       Route::get('/admin/dashboard', [SessionsController::class, 'adminDashboard'])->name('admins.dashboard');

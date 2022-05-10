@@ -15,7 +15,7 @@
           <div class="ml-5">
             <form action="/logout" method="post">
                 @csrf
-                <button type="submit" class="text-xs font-semibold border border-solid rounded" style="padding: 5px; color: black; background-color: lightgray; width: 100px; border-color:black;">
+                <button type="submit" class="text-lg font-semibold border border-solid rounded" style="padding: 5px; color: black; background-color: lightgray; width: 100px; border-color:black;">
                     Log out
                 </button>
             </form>

@@ -52,11 +52,11 @@
                         </div>
                         <div class="mt-4 px-4">
                             <label for="gender" class="block ">Gender</label>
-                            <input type="text" class="bg-gray-100 py-1.5 rounded" name="gender" value="{{$user->gender}} " required>
+                            <input type="text" class="bg-gray-100 py-1.5 rounded"  disabled value="{{$user->gender}} " required>
                         </div>
                         <div class="mt-4 px-4">
                             <label for="civil_status" class="block">Civil Status</label>
-                            <input type="text" class="bg-gray-100 py-1.5 rounded" name="status" value="{{$user->civil_status}} " required>
+                            <input type="text" class="bg-gray-100 py-1.5 rounded" disabled value="{{$user->civil_status}} " required>
                         </div>
                     </div>
                 </div>

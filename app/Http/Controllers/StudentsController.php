@@ -41,8 +41,6 @@ class StudentsController extends Controller
         $user->firstName = $request->firstName;
         $user->middleName = $request->middleName;
         $user->lastName = $request->lastName;
-        $user->birthday = $request->birthday;
-        $user->gender = $request->gender;
         $user->civil_status = $request->status;
         $user->address = $request->address;
         $user->save();

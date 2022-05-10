@@ -62,9 +62,6 @@
                             <td class="border text-center px-8 py-4"> {{$detail->degree}} </td>
                             <td class="border text-center px-8 py-4">  
                               <a href=" {{ route ('staffs.showtor', $detail->id) }}" class="bg-maroon-100 text-white px-2 py-3 rounded-md">Generate TOR</a>
-                              
-                              <a href=" {{ route ('staffs.editTor', $detail->id) }}" class="bg-maroon-100 text-white px-2 py-3 rounded-md">Edit TOR</a>
-                              
                             </td>
                         </tr>
                         @endforeach

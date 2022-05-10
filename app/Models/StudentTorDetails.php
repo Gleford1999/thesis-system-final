@@ -20,7 +20,6 @@ class StudentTorDetails extends Model
         'highschool',
         'hs_year',
         'degree',
-        'major', 
     ];
 
     public function ToR(){

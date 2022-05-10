@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="w-full h-full p-4 m-8 overflow-y-auto">
-        <div class="mt-2 ml-2 flex items-center justify-center w-2/4">
+        <div class="mt-2 ml-2 flex items-center justify-center">
             <form action="{{ route ('students.request-list') }}" method="get">
                 <table class="shadow-lg bg-white border-separate text-center">
                     <thead>

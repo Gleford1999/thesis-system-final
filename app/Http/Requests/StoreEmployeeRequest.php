@@ -24,9 +24,9 @@ class StoreEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => ['required', 'max:255'],
-            'middleName' => ['required', 'max:255'],
-            'lastName' => ['required', 'max:255'],
+            'firstName' => ['required', 'max:255', 'alpha'],
+            'middleName' => ['required', 'max:255', 'alpha'],
+            'lastName' => ['required', 'max:255', 'alpha'],
             'address' => ['required', 'max:500'],
             'birthday' => ['required', 'max:255'],
             'gender' => ['required', 'max:255'],

@@ -44,8 +44,8 @@
                 <h2 class="ml-8 text-lg">Request for Transcript of Record</h2>
             </div>
 
-            <div class="mt-2 ml-2 flex items-center justify-center w-2/4">
-                <table class=" w-3/4 shadow-lg bg-white border-separate ">
+            <div class="mt-2 ml-2 flex items-center justify-center ">
+                <table class=" shadow-lg bg-white border-separate ">
                     <thead class="m-8">
                         <tr>
                             <th class="border text-left px-8 py-4"> Student ID</th> <td  class="border px-8 py-4"> {{  $student->student_id }} </td>

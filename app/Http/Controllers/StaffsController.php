@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\storeTORRequest;
 use App\Models\Course;
 use App\Models\Employee;
+use App\Models\Grades;
 use App\Models\Requests;
 use App\Models\Student;
 use App\Models\StudentTorDetails;
@@ -65,12 +66,14 @@ class StaffsController extends Controller
 
 
      public function process($id) {
-        
         $requests = Requests::find($id);
         $subjects = Subject::all();
+        $grades = Grades::all();
         return view ('/staffs/tor', [
             'requests' => $requests,
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'grades' => $grades,
+            'school_years' => Course::all()->unique('school_year')->pluck('school_year')
         ]);
      }
 
@@ -88,7 +91,6 @@ class StaffsController extends Controller
             'highschool' => $request->highschool,
             'hs_year' => $request->hs_year,
             'degree' => $request->degree,
-            'major' => $request->major, 
            ]);
         //    return $details;
 
@@ -118,93 +120,93 @@ class StaffsController extends Controller
                 'remarks' => $request->remarks2[$index],
             ]);    
         }
-        //2nd Year
-        foreach ( $request->code3 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year2,
-                'sem' => $request->sem3,
-                'code' => $code,
-                'subject' => $request->subject3[$index],
-                'credits' => $request->credits3[$index],
-                'grades' => $request->grades3[$index],
-                'remarks' => $request->remarks3[$index],
-            ]);    
-        }
-        foreach ( $request->code4 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year2,
-                'sem' => $request->sem4,
-                'code' => $code,
-                'subject' => $request->subject4[$index],
-                'credits' => $request->credits4[$index],
-                'grades' => $request->grades4[$index],
-                'remarks' => $request->remarks4[$index],
-            ]);    
-        }
-        //Third Year
-        foreach ( $request->code5 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year3,
-                'sem' => $request->sem5,
-                'code' => $code,
-                'subject' => $request->subject5[$index],
-                'credits' => $request->credits5[$index],
-                'grades' => $request->grades5[$index],
-                'remarks' => $request->remarks5[$index],
-            ]);    
-        }
-         foreach ( $request->code6 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year3,
-                'sem' => $request->sem6,
-                'code' => $code,
-                'subject' => $request->subject6[$index],
-                'credits' => $request->credits6[$index],
-                'grades' => $request->grades6[$index],
-                'remarks' => $request->remarks6[$index],
-            ]);    
-        }
-        foreach ( $request->code7 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year3,
-                'sem' => $request->sem7,
-                'code' => $code,
-                'subject' => $request->subject7[$index],
-                'credits' => $request->credits7[$index],
-                'grades' => $request->grades7[$index],
-                'remarks' => $request->remarks7[$index],
-            ]);    
-        }
-        // Fourth Year
-        foreach ( $request->code8 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year4,
-                'sem' => $request->sem8,
-                'code' => $code,
-                'subject' => $request->subject8[$index],
-                'credits' => $request->credits8[$index],
-                'grades' => $request->grades8[$index],
-                'remarks' => $request->remarks8[$index],
-            ]);    
-        }
-        foreach ( $request->code9 as $index => $code ) {
-            ToR::create([
-                'student_id' => $details->id,
-                'school_year' => $request->school_year4,
-                'sem' => $request->sem9,
-                'code' => $code,
-                'subject' => $request->subject9[$index],
-                'credits' => $request->credits9[$index],
-                'grades' => $request->grades9[$index],
-                'remarks' => $request->remarks9[$index],
-            ]);    
-        }
+        // //2nd Year
+        // foreach ( $request->code3 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year2,
+        //         'sem' => $request->sem3,
+        //         'code' => $code,
+        //         'subject' => $request->subject3[$index],
+        //         'credits' => $request->credits3[$index],
+        //         'grades' => $request->grades3[$index],
+        //         'remarks' => $request->remarks3[$index],
+        //     ]);    
+        // }
+        // foreach ( $request->code4 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year2,
+        //         'sem' => $request->sem4,
+        //         'code' => $code,
+        //         'subject' => $request->subject4[$index],
+        //         'credits' => $request->credits4[$index],
+        //         'grades' => $request->grades4[$index],
+        //         'remarks' => $request->remarks4[$index],
+        //     ]);    
+        // }
+        // //Third Year
+        // foreach ( $request->code5 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year3,
+        //         'sem' => $request->sem5,
+        //         'code' => $code,
+        //         'subject' => $request->subject5[$index],
+        //         'credits' => $request->credits5[$index],
+        //         'grades' => $request->grades5[$index],
+        //         'remarks' => $request->remarks5[$index],
+        //     ]);    
+        // }
+        //  foreach ( $request->code6 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year3,
+        //         'sem' => $request->sem6,
+        //         'code' => $code,
+        //         'subject' => $request->subject6[$index],
+        //         'credits' => $request->credits6[$index],
+        //         'grades' => $request->grades6[$index],
+        //         'remarks' => $request->remarks6[$index],
+        //     ]);    
+        // }
+        // foreach ( $request->code7 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year3,
+        //         'sem' => $request->sem7,
+        //         'code' => $code,
+        //         'subject' => $request->subject7[$index],
+        //         'credits' => $request->credits7[$index],
+        //         'grades' => $request->grades7[$index],
+        //         'remarks' => $request->remarks7[$index],
+        //     ]);    
+        // }
+        // // Fourth Year
+        // foreach ( $request->code8 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year4,
+        //         'sem' => $request->sem8,
+        //         'code' => $code,
+        //         'subject' => $request->subject8[$index],
+        //         'credits' => $request->credits8[$index],
+        //         'grades' => $request->grades8[$index],
+        //         'remarks' => $request->remarks8[$index],
+        //     ]);    
+        // }
+        // foreach ( $request->code9 as $index => $code ) {
+        //     ToR::create([
+        //         'student_id' => $details->id,
+        //         'school_year' => $request->school_year4,
+        //         'sem' => $request->sem9,
+        //         'code' => $code,
+        //         'subject' => $request->subject9[$index],
+        //         'credits' => $request->credits9[$index],
+        //         'grades' => $request->grades9[$index],
+        //         'remarks' => $request->remarks9[$index],
+        //     ]);    
+        // }
 
        
         // change number code, sem, credits, subjects, grades and remarks
@@ -296,8 +298,6 @@ class StaffsController extends Controller
         $info->middleName = $request->middleName;
         $info->lastName = $request->lastName;
         $info->birthday = $request->birthday;
-        $info->gender = $request->gender;
-        $info->civil_status = $request->status;
         $info->address = $request->address;
         $info->save();
         return redirect()->back();
@@ -316,5 +316,16 @@ class StaffsController extends Controller
         ]);
     }
 
-    
+    // public function findSubject(Request $request){
+    //     $s = Subject::select('subject_name')->where('id', $request->id)->first();
+
+    //     return response()->json($s);
+    // }
+
+    public function findRemark(Request $request){
+
+        $remark = Grades::select('remarks')->where('id', $request->id)->first();
+
+        return response()->json($remark);
+    }
 }

@@ -24,9 +24,9 @@ class StoreStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => ['required', 'max:255'],
-            'middleName' => ['required', 'max:255'],
-            'lastName' => ['required', 'max:255'],
+            'firstName' => ['required', 'max:255', 'alpha'],
+            'middleName' => ['required', 'max:255', 'alpha'],
+            'lastName' => ['required', 'max:255', 'alpha'],
             'student_id' => ['required', 'max:10', 'min:10', 'unique:students,student_id'],
             'course' => ['required', 'max:255'],
             'year' => ['required', 'max:255'],
